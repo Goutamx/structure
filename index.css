@@ -1,0 +1,296 @@
+@import "tailwindcss";
+
+:root {
+  --paper-color: #fcf5e5;
+  --line-color: #c5d0db;
+  --ink-blue: #2f3542;
+  --ink-red: #c0392b;
+  --highlighter-yellow: rgba(255, 242, 0, 0.4);
+  --highlighter-green: rgba(46, 204, 113, 0.3);
+  --highlighter-pink: rgba(255, 105, 180, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #57606f;
+  font-family: 'Kalam', cursive;
+  color: var(--ink-blue);
+  line-height: 1.7;
+}
+
+.handwriting {
+  font-family: 'Kalam', cursive;
+}
+
+.handwriting-alt {
+  font-family: 'Patrick Hand', cursive;
+}
+
+/* Pages Container */
+.pages-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Individual Page */
+.page {
+  background-color: var(--paper-color);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,0,0,0.1);
+  position: relative;
+  padding: 50px 60px 60px 60px;
+  margin-bottom: 40px;
+  min-height: auto;
+  overflow: hidden;
+  /* Single line ruling */
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 31px,
+    var(--line-color) 31px,
+    var(--line-color) 32px
+  );
+  background-position: 0 45px;
+}
+
+/* Page shadow for depth */
+.page::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.1));
+}
+
+/* Typography */
+.title-main {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 2.8rem;
+  color: var(--ink-red);
+  text-align: center;
+  border-bottom: 3px solid var(--ink-blue);
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  transform: rotate(-1deg);
+}
+
+.section-title {
+  font-size: 1.8rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #d35400;
+  border-bottom: 2px dashed #d35400;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.subsection-title {
+  font-size: 1.4rem;
+  color: #2c3e50;
+  background: var(--highlighter-yellow);
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: 20px 5px 20px 5px;
+  transform: rotate(-0.5deg);
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.sub-heading {
+  font-size: 1.25rem;
+  text-decoration: underline wavy var(--ink-red);
+  text-underline-offset: 4px;
+  margin-top: 15px;
+  margin-bottom: 8px;
+}
+
+/* Text styling */
+p, li {
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+}
+
+strong {
+  font-weight: 700;
+  color: #000;
+}
+
+/* Visual Elements */
+.sketch-box {
+  border: 2px solid var(--ink-blue);
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  padding: 20px;
+  margin: 20px 0;
+  background: rgba(255,255,255,0.4);
+}
+
+.arrow-flow {
+  color: var(--ink-red);
+  font-weight: bold;
+  margin: 0 5px;
+}
+
+/* Lists */
+ul {
+  list-style-type: none;
+  padding-left: 5px;
+}
+
+ul li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 6px;
+}
+
+ul li::before {
+  content: '•';
+  color: var(--ink-red);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+/* Flex layouts */
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.flex-col {
+  flex: 1;
+  min-width: 280px;
+  border-left: 2px solid var(--line-color);
+  padding-left: 15px;
+}
+
+.flex-col:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+/* Special text styles */
+.river-text {
+  color: #3498db;
+  text-decoration: underline wavy #3498db;
+  font-weight: bold;
+}
+
+.highlight-yellow {
+  background: var(--highlighter-yellow);
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+
+.highlight-green {
+  background: var(--highlighter-green);
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+
+.highlight-pink {
+  background: var(--highlighter-pink);
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+
+.highlight-box {
+  border: 2px solid rgba(0,0,0,0.1);
+  padding: 2px 8px;
+  border-radius: 50%;
+}
+
+/* Tables */
+.hand-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.hand-table th {
+  border-bottom: 3px solid var(--ink-blue);
+  text-align: left;
+  padding: 10px;
+  color: var(--ink-red);
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.2rem;
+}
+
+.hand-table td {
+  border-bottom: 1px solid var(--line-color);
+  padding: 10px;
+  vertical-align: top;
+}
+
+.hand-table td:first-child {
+  border-right: 2px dashed var(--line-color);
+}
+
+/* Zonation box */
+.zone-box {
+  background: #ecf0f1;
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px dashed #95a5a6;
+  margin: 15px 0;
+}
+
+/* Info boxes */
+.info-box {
+  background: #fffbf0;
+  border: 2px solid #f1c40f;
+  padding: 15px;
+  margin: 15px 0;
+  transform: rotate(0.5deg);
+}
+
+.note-box {
+  background: rgba(255,255,255,0.5);
+  border-left: 4px solid var(--ink-red);
+  padding: 10px 15px;
+  margin: 15px 0;
+  font-style: italic;
+}
+
+/* Dividers */
+.divider {
+  border: 0;
+  border-top: 2px dashed var(--line-color);
+  margin: 25px 0;
+}
+
+/* Simple text block for geological divisions */
+.geo-block {
+  margin-bottom: 25px;
+  padding-left: 10px;
+}
+
+.geo-block h4 {
+  margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page {
+    padding: 40px 25px 50px 25px;
+    margin-bottom: 30px;
+  }
+  .pages-container {
+    padding: 20px 10px;
+  }
+  .title-main {
+    font-size: 2rem;
+  }
+  .flex-col {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px dashed var(--line-color);
+    padding-top: 15px;
+  }
+}
